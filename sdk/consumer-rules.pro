@@ -1,0 +1,2 @@
+-keep class com.beezync.sdk.BeezyncMessagingService { *; }
+-keep class com.beezync.sdk.BeezyncDismissReceiver { *; }
