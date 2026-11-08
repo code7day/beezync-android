@@ -188,3 +188,7 @@ gradle wrapper    # solo si falta gradlew
 - No se escriben tokens en los logs.
 - Los errores de red se devuelven como `Result.failure`.
 - `baseUrl` debe ser `https` en producción. `http` solo para desarrollo (en Android requiere `usesCleartextTraffic`).
+
+## Autoría y licencia
+
+Beezync es un proyecto de Eduardo Flores. El servicio comercial de Beezync es respaldado y operado por ITM Soluciones Tecnológicas e Inversiones S.A.C. Este SDK se distribuye con licencia MIT (ver `LICENSE`).
