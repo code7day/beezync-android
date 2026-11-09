@@ -34,7 +34,7 @@ En `app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.github.code7day.beezync-android:sdk:0.1.1")
+    implementation("com.github.code7day:beezync-android:0.1.1")
 }
 ```
 
