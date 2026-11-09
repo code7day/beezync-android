@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -21,6 +22,12 @@ android {
         jvmTarget = "17"
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
     testOptions {
         unitTests.isReturnDefaultValues = true
     }
@@ -37,4 +44,17 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.0.21")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.code7day"
+                artifactId = "beezync-android"
+                version = System.getenv("VERSION") ?: "0.1.1"
+            }
+        }
+    }
 }

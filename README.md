@@ -18,22 +18,25 @@ El núcleo (`Beezync`, `BeezyncApi`, `RealtimeClient`, `Protocol`, `Backoff`) se
 
 ## Instalación
 
-Mientras no haya publicación en Maven, incluya el módulo como proyecto Gradle. En el `settings.gradle.kts` de su app:
+El SDK se publica con JitPack. En el `settings.gradle.kts` de tu app agrega el repositorio:
 
 ```kotlin
-include(":sdk")
-project(":sdk").projectDir = file("../ruta/a/Add-ons/SDKs/android-kotlin/sdk")
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+}
 ```
 
 En `app/build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation(project(":sdk"))
+    implementation("com.github.code7day.beezync-android:sdk:0.1.1")
 }
 ```
-
-Si publica el SDK en un repositorio Maven propio, la dependencia sería `implementation("com.beezync:sdk:<version>")`.
 
 ## Configurar Firebase
 
@@ -189,6 +192,6 @@ gradle wrapper    # solo si falta gradlew
 - Los errores de red se devuelven como `Result.failure`.
 - `baseUrl` debe ser `https` en producción. `http` solo para desarrollo (en Android requiere `usesCleartextTraffic`).
 
-## Autoría y licencia
+## Licencia
 
-Beezync es un proyecto de Eduardo Flores. El servicio comercial de Beezync es respaldado y operado por ITM Soluciones Tecnológicas e Inversiones S.A.C. Este SDK se distribuye con licencia MIT (ver `LICENSE`).
+© 2026 Beezync. Licencia MIT (ver `LICENSE`).
